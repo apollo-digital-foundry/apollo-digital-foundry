@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apollo Digital Foundry — Building Digital Products</title>
+  <meta name="description" content="Apollo Digital Foundry is a product lab crafting apps, tools, and digital experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Moon base -->
+          <circle cx="18" cy="18" r="16" fill="#ff6b35"/>
+          <!-- Shadow edge (bottom-right) -->
+          <path d="M30,10 A16,16 0 0,1 10,30 A16,16 0 0,0 30,10Z" fill="#e05a28" opacity="0.4"/>
+          <!-- Craters -->
+          <circle cx="12" cy="13" r="3" fill="#b8421a" opacity="0.5"/>
+          <circle cx="22" cy="10" r="1.8" fill="#b8421a" opacity="0.45"/>
+          <circle cx="20" cy="22" r="3.5" fill="#b8421a" opacity="0.45"/>
+          <circle cx="10" cy="22" r="2" fill="#b8421a" opacity="0.4"/>
+          <circle cx="26" cy="17" r="1.5" fill="#b8421a" opacity="0.45"/>
+          <circle cx="15" cy="27" r="1.2" fill="#b8421a" opacity="0.4"/>
+          <!-- Subtle crater rims (lighter edges) -->
+          <circle cx="12" cy="13" r="3" stroke="#ffaa77" stroke-width="0.4" fill="none" opacity="0.2"/>
+          <circle cx="20" cy="22" r="3.5" stroke="#ffaa77" stroke-width="0.4" fill="none" opacity="0.15"/>
+        </svg>
+        <span class="logo-text">Apollo Digital Foundry</span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">Product Lab & Digital Foundry</p>
+      <h1 class="hero-title">We build<br><span class="accent">digital products.</span></h1>
+      <p class="hero-sub">Apollo Digital Foundry is a product lab crafting apps, tools, and digital experiences — from idea to launch.</p>
+      <a href="#projects" class="btn btn-primary">See What We're Building</a>
+    </div>
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <p class="section-tag">Portfolio</p>
+      <h2 class="section-title">From the Foundry</h2>
+      <p class="section-sub">Products we're crafting, shipping, and scaling.</p>
+
+      <div class="projects-grid">
+        <!-- Clevo — Featured Project -->
+        <div class="project-card featured reveal">
+          <div class="project-card-inner">
+            <div class="project-header">
+              <div class="project-icon">
+                <img src="assets/clevo-icon.png" alt="Clevo App Icon" class="app-icon">
+              </div>
+              <span class="project-badge">Coming Soon</span>
+            </div>
+            <h3 class="project-name">Clevo</h3>
+            <p class="project-desc">A smarter way to quit. Clevo helps you break unwanted habits with personalized tracking, insights, and motivation — designed to make quitting stick.</p>
+            <div class="project-tags">
+              <span class="tag">iOS App</span>
+              <span class="tag">Health & Fitness</span>
+              <span class="tag">SwiftUI</span>
+            </div>
+            <div class="project-footer">
+              <span class="project-status">
+                <span class="status-dot"></span>
+                In Development
+              </span>
+              <a href="privacy-clevo.html" class="project-link">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder: Coming Soon -->
+        <div class="project-card placeholder reveal">
+          <div class="project-card-inner">
+            <div class="project-icon muted">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.08"/>
+                <path d="M20 18H28M20 24H28M20 30H24" stroke="currentColor" stroke-opacity="0.3" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="project-name muted-text">Next Project</h3>
+            <p class="project-desc muted-text">Something new is taking shape in the foundry. Stay tuned.</p>
+            <div class="project-footer">
+              <span class="project-status muted-text">
+                <span class="status-dot muted-dot"></span>
+                On the Anvil
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder: Coming Soon -->
+        <div class="project-card placeholder reveal">
+          <div class="project-card-inner">
+            <div class="project-icon muted">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.08"/>
+                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-opacity="0.3" stroke-width="2"/>
+                <path d="M24 18V16M24 32V30M30 24H32M16 24H18" stroke="currentColor" stroke-opacity="0.3" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="project-name muted-text">Coming Soon</h3>
+            <p class="project-desc muted-text">More ideas are heating up. Watch this space.</p>
+            <div class="project-footer">
+              <span class="project-status muted-text">
+                <span class="status-dot muted-dot"></span>
+                On the Anvil
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <p class="section-tag">About</p>
+      <h2 class="section-title">The Foundry</h2>
+
+      <div class="about-content reveal">
+        <div class="about-text">
+          <p>Apollo Digital Foundry is where ideas get forged into real products. We're a lean product lab focused on building apps, tools, and digital experiences that solve real problems.</p>
+          <p>Every product starts as a spark — an itch to scratch, a gap to fill, a better way to do something. We take those sparks and run them through the full cycle: <strong>ideate, design, build, ship.</strong></p>
+          <p>We move fast, stay hands-on, and care deeply about craft. If it ships from the foundry, it's built to last.</p>
+        </div>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon">&#9881;</div>
+            <h4>Build</h4>
+            <p>Ship real products, not slide decks.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#9733;</div>
+            <h4>Craft</h4>
+            <p>Sweat the details that matter.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#9889;</div>
+            <h4>Iterate</h4>
+            <p>Launch, learn, improve, repeat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-main">
+          <p class="section-tag">Get in Touch</p>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="footer-text">Have an idea, a question, or just want to say hello? Reach out.</p>
+          <a href="mailto:hello@apollodigitalfoundry.com" class="btn btn-primary">hello@apollodigitalfoundry.com</a>
+        </div>
+        <div class="footer-info">
+          <div class="footer-info-item">
+            <span class="footer-info-label">Location</span>
+            <span>Spokane, WA</span>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Apollo Digital Foundry. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="#hero">Back to Top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
