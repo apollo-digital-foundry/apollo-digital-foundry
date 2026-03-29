@@ -362,6 +362,17 @@ img {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project-badge.live {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.15);
+}
+
+.project-badge.live:hover {
+  background: rgba(52, 211, 153, 0.25);
 }
 
 .project-name {
@@ -428,6 +439,10 @@ img {
   border-radius: 50%;
   background: var(--accent);
   animation: dot-pulse 2s ease-in-out infinite;
+}
+
+.live-dot {
+  background: #34d399;
 }
 
 .muted-dot {
