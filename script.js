@@ -1,86 +1,77 @@
-// ============================================
-// Apollo Digital Foundry — Scripts
-// ============================================
+// =========================================================
+// Apollo Digital Foundry — Mission Control
+// Live UTC clock, custom cursor, smooth scroll
+// =========================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+(() => {
+  const pad = (n) => String(n).padStart(2, '0');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // --- Mobile Navigation Toggle ---
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
+  // ---------- Live UTC clock ----------
+  const clock = document.getElementById('utc-clock');
+  if (clock) {
+    const tick = () => {
+      const d = new Date();
+      clock.textContent =
+        `${d.getUTCFullYear()}.${pad(d.getUTCMonth() + 1)}.${pad(d.getUTCDate())} ` +
+        `${pad(d.getUTCHours())}:${pad(d.getUTCMinutes())}:${pad(d.getUTCSeconds())} UTC`;
+    };
+    tick();
+    setInterval(tick, 1000);
   }
 
-
-  // --- Smooth Scroll for anchor links ---
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetId = anchor.getAttribute('href');
-      const target = document.querySelector(targetId);
-      if (target) {
-        const navHeight = document.querySelector('.nav')?.offsetHeight || 64;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
+  // ---------- Smooth anchor scroll + top ----------
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    if (history.replaceState) history.replaceState(null, '', href);
   });
 
+  // ---------- Custom cursor ----------
+  const cursor = document.querySelector('.cursor');
+  const coords = document.querySelector('.cursor-coords');
 
-  // --- Scroll Reveal Animations ---
-  const revealElements = document.querySelectorAll('.reveal');
+  if (cursor && coords && !reducedMotion) {
+    const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+    const narrow = window.innerWidth <= 768;
 
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  });
+    if (!isCoarse && !narrow) {
+      let raf = 0;
+      let pending = null;
+      const fmt = (n) => String(Math.round(n)).padStart(4, '0');
 
-  revealElements.forEach(el => revealObserver.observe(el));
+      const onMove = (e) => {
+        pending = e;
+        if (!raf) {
+          raf = requestAnimationFrame(() => {
+            raf = 0;
+            const ev = pending;
+            cursor.classList.add('active');
+            coords.classList.add('active');
+            cursor.style.left = ev.clientX + 'px';
+            cursor.style.top = ev.clientY + 'px';
+            coords.style.left = ev.clientX + 'px';
+            coords.style.top = ev.clientY + 'px';
+            coords.textContent = `X:${fmt(ev.clientX)} Y:${fmt(ev.clientY)}`;
+            const t = ev.target;
+            const hovering = t && t.closest && t.closest('[data-hover], a, button, .project-row, .cta');
+            cursor.classList.toggle('hover', !!hovering);
+          });
+        }
+      };
+      const onLeave = () => {
+        cursor.classList.remove('active');
+        coords.classList.remove('active');
+      };
 
-
-  // --- Nav background on scroll ---
-  const nav = document.getElementById('nav');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-      nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
-    } else {
-      nav.style.borderBottomColor = 'rgba(255, 255, 255, 0.06)';
+      window.addEventListener('mousemove', onMove, { passive: true });
+      window.addEventListener('mouseleave', onLeave);
     }
-
-    lastScroll = currentScroll;
-  }, { passive: true });
-
-
-  // --- Staggered reveal for project cards ---
-  const projectCards = document.querySelectorAll('.project-card.reveal');
-  projectCards.forEach((card, index) => {
-    card.style.transitionDelay = `${index * 0.12}s`;
-  });
-
-});
+  }
+})();

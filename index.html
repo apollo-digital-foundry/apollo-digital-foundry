@@ -1,214 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apollo Digital Foundry — Building Digital Products</title>
-  <meta name="description" content="Apollo Digital Foundry is a product lab crafting apps, tools, and digital experiences.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apollo Digital Foundry — Product Lab / SPK-01</title>
+  <meta name="description" content="Apollo Digital Foundry is a product lab crafting apps, tools, and digital experiences — from idea to launch." />
+
+  <!-- Open Graph / iMessage / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Apollo Digital Foundry" />
+  <meta property="og:title" content="Apollo Digital Foundry — Product Lab" />
+  <meta property="og:description" content="A product lab crafting apps, tools, and digital experiences — from idea to launch." />
+  <meta property="og:url" content="https://apollodigitalfoundry.com/" />
+  <meta property="og:image" content="https://apollodigitalfoundry.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Apollo Digital Foundry — mission control schematic with orbital monogram and wordmark" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Apollo Digital Foundry — Product Lab" />
+  <meta name="twitter:description" content="A product lab crafting apps, tools, and digital experiences — from idea to launch." />
+  <meta name="twitter:image" content="https://apollodigitalfoundry.com/og-image.png" />
+
+  <meta name="theme-color" content="#0a0b0d" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-coords" aria-hidden="true">X:0000 Y:0000</div>
 
-  <!-- Navigation -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">
-        <svg class="logo-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Moon base -->
-          <circle cx="18" cy="18" r="16" fill="#ff6b35"/>
-          <!-- Shadow edge (bottom-right) -->
-          <path d="M30,10 A16,16 0 0,1 10,30 A16,16 0 0,0 30,10Z" fill="#e05a28" opacity="0.4"/>
-          <!-- Craters -->
-          <circle cx="12" cy="13" r="3" fill="#b8421a" opacity="0.5"/>
-          <circle cx="22" cy="10" r="1.8" fill="#b8421a" opacity="0.45"/>
-          <circle cx="20" cy="22" r="3.5" fill="#b8421a" opacity="0.45"/>
-          <circle cx="10" cy="22" r="2" fill="#b8421a" opacity="0.4"/>
-          <circle cx="26" cy="17" r="1.5" fill="#b8421a" opacity="0.45"/>
-          <circle cx="15" cy="27" r="1.2" fill="#b8421a" opacity="0.4"/>
-          <!-- Subtle crater rims (lighter edges) -->
-          <circle cx="12" cy="13" r="3" stroke="#ffaa77" stroke-width="0.4" fill="none" opacity="0.2"/>
-          <circle cx="20" cy="22" r="3.5" stroke="#ffaa77" stroke-width="0.4" fill="none" opacity="0.15"/>
-        </svg>
-        <span class="logo-text">Apollo Digital Foundry</span>
+  <div class="page">
+    <!-- TELEMETRY CHROME -->
+    <div class="chrome" role="status" aria-label="Mission control status">
+      <div class="chrome-inner">
+        <div class="chrome-left">
+          <span><span class="chrome-dot"></span>MCC // SPK-01</span>
+          <span class="chrome-dim">SPOKANE / WA</span>
+        </div>
+        <div class="chrome-center">ALL SYSTEMS NOMINAL</div>
+        <div class="chrome-right">
+          <span class="chrome-dim">CH 04.18.26</span>
+          <span id="utc-clock">— — —</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="logo" data-hover>
+        <span class="logo-mark">
+          <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+            <ellipse cx="20" cy="20" rx="18" ry="7" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6" transform="rotate(-20 20 20)" />
+            <line x1="2" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+            <line x1="20" y1="2" x2="20" y2="38" stroke="currentColor" stroke-width="0.5" opacity="0.3" />
+            <circle cx="20" cy="20" r="4" fill="currentColor" />
+            <circle cx="35.5" cy="15" r="1.4" fill="var(--accent)" />
+          </svg>
+        </span>
+        <span class="logo-title-group">
+          <span>APOLLO DIGITAL FOUNDRY</span>
+          <span class="logo-sub">MCC / SPK-01</span>
+        </span>
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links" id="nav-links">
+      <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-    </div>
-  </nav>
+      <div class="nav-channel">EST 2025 / SHIPPING 02</div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-tag">Product Lab & Digital Foundry</p>
-      <h1 class="hero-title">We build<br><span class="accent">digital products.</span></h1>
-      <p class="hero-sub">Apollo Digital Foundry is a product lab crafting apps, tools, and digital experiences — from idea to launch.</p>
-      <a href="#projects" class="btn btn-primary">See What We're Building</a>
-    </div>
-    <div class="hero-glow"></div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="section" id="projects">
-    <div class="container">
-      <p class="section-tag">Portfolio</p>
-      <h2 class="section-title">From the Foundry</h2>
-      <p class="section-sub">Products we're crafting, shipping, and scaling.</p>
-
-      <div class="projects-grid">
-        <!-- Clevo — Featured Project -->
-        <div class="project-card featured reveal">
-          <div class="project-card-inner">
-            <div class="project-header">
-              <div class="project-icon">
-                <img src="assets/clevo-icon.png" alt="Clevo App Icon" class="app-icon">
+    <main class="main-content">
+      <div class="page-fade">
+        <!-- HERO -->
+        <section class="hero" id="hero">
+          <div class="hero-grid">
+            <div>
+              <div class="hero-label">
+                MISSION 01 // PRODUCT LAB
+                <span class="active-tag">● ACTIVE</span>
               </div>
-              <a href="https://apps.apple.com/us/app/clevo-quit-bad-habits/id6760947254" target="_blank" class="project-badge live">Download on the App Store</a>
+              <h1 class="hero-title">
+                We build<br />
+                digital<br />
+                products<span class="mark">/01</span>
+              </h1>
+              <p class="hero-sub">
+                Apollo Digital Foundry is a product lab crafting apps, tools, and digital experiences — from idea to launch.
+              </p>
+              <div class="cta-row">
+                <a href="#projects" class="cta" data-hover>
+                  See What We're Building
+                  <span class="arrow">→</span>
+                </a>
+                <a href="#about" class="cta ghost" data-hover>About the Foundry</a>
+              </div>
             </div>
-            <h3 class="project-name">Clevo</h3>
-            <p class="project-desc">Clevo helps you break unwanted habits — like nicotine, vaping, drinking, gambling, and more — with personalized tracking, insights, and motivation.</p>
-            <div class="project-tags">
-              <span class="tag">iOS App</span>
-              <span class="tag">Health & Fitness</span>
-              <span class="tag">SwiftUI</span>
-            </div>
-            <div class="project-footer">
-              <span class="project-status">
-                <span class="status-dot live-dot"></span>
-                Live on the App Store
-              </span>
-              <a href="privacy-clevo.html" class="project-link">Privacy Policy</a>
-              <a href="terms-clevo.html" class="project-link">Terms of Service</a>
-            </div>
-          </div>
-        </div>
+            <div class="hero-schematic" data-hover aria-hidden="true">
+              <span class="schematic-label top">FIG.01 — FOUNDRY OPERATIONS</span>
+              <span class="schematic-label bottom">EOF</span>
+              <span class="schematic-corner tr"></span>
+              <span class="schematic-corner bl"></span>
+              <div class="orbit-wrap">
+                <svg class="orbit-svg" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Foundry trajectory — orbital schematic">
+                  <!-- Center body -->
+                  <circle cx="260" cy="210" r="22" class="body" />
+                  <circle cx="260" cy="210" r="22" class="accent" stroke-dasharray="2 3" opacity="0.5" />
+                  <text x="260" y="248" text-anchor="middle" class="label bright">FOUNDRY</text>
+                  <text x="260" y="260" text-anchor="middle" class="label" opacity="0.6">CORE / 47.66°N 117.43°W</text>
 
-        <!-- SendEstimates -->
-        <div class="project-card reveal">
-          <div class="project-card-inner">
-            <div class="project-header">
-              <div class="project-icon">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="48" height="48" rx="12" fill="#2563EB"/>
-                  <text x="8" y="33" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="white">SE</text>
+                  <!-- Orbital rings -->
+                  <circle cx="260" cy="210" r="80" class="ring" />
+                  <circle cx="260" cy="210" r="130" class="ring" />
+                  <circle cx="260" cy="210" r="180" class="ring" />
+
+                  <!-- Crosshairs -->
+                  <line x1="20" y1="210" x2="500" y2="210" class="axis" stroke-dasharray="4 6" />
+                  <line x1="260" y1="20" x2="260" y2="400" class="axis" stroke-dasharray="4 6" />
+
+                  <!-- Tick marks at 0/90/180/270 on outermost ring -->
+                  <line x1="438" y1="210" x2="448" y2="210" class="accent" stroke-width="1.5" />
+                  <line x1="260" y1="388" x2="260" y2="398" class="accent" stroke-width="1.5" />
+                  <line x1="82" y1="210" x2="72" y2="210" class="accent" stroke-width="1.5" />
+                  <line x1="260" y1="32" x2="260" y2="22" class="accent" stroke-width="1.5" />
+
+                  <!-- Sat 1 — Clevo -->
+                  <g class="sat">
+                    <circle cx="340" cy="210" r="5" class="node" />
+                    <text x="350" y="206" class="label bright">CLEVO</text>
+                    <text x="350" y="218" class="label" opacity="0.6">ORBIT-01 / LIVE</text>
+                  </g>
+
+                  <!-- Sat 2 — SendEstimates -->
+                  <g class="sat s2">
+                    <rect x="386" y="206" width="8" height="8" class="accent-fill" />
+                    <text x="398" y="206" class="label bright">SEND.EST</text>
+                    <text x="398" y="218" class="label" opacity="0.6">ORBIT-02 / LIVE</text>
+                  </g>
+
+                  <!-- Sat 3 — Placeholder -->
+                  <g class="sat s3">
+                    <circle cx="440" cy="210" r="3" fill="none" stroke="currentColor" stroke-dasharray="2 2" />
+                    <text x="450" y="206" class="label">PRJ-03</text>
+                    <text x="450" y="218" class="label" opacity="0.6">PRE-LAUNCH</text>
+                  </g>
+
+                  <!-- Corner labels -->
+                  <text x="20" y="20" class="label">FIG.01 / TRAJECTORY</text>
+                  <text x="500" y="20" text-anchor="end" class="label">SCALE 1:∞</text>
+                  <text x="20" y="412" class="label">UPDATED 04.18.26</text>
+                  <text x="500" y="412" text-anchor="end" class="label">T+ 00:14:22:09</text>
                 </svg>
               </div>
-              <a href="https://sendestimates.com" target="_blank" class="project-badge live">Visit Site</a>
-            </div>
-            <h3 class="project-name">SendEstimates</h3>
-            <p class="project-desc">A mobile-first quoting app for trade contractors. Build and send professional, branded quotes from your phone in under 2 minutes — with e-signatures, auto follow-ups, and PDF generation.</p>
-            <div class="project-tags">
-              <span class="tag">Web App</span>
-              <span class="tag">SaaS</span>
-              <span class="tag">Next.js</span>
-            </div>
-            <div class="project-footer">
-              <span class="project-status">
-                <span class="status-dot live-dot"></span>
-                Live
-              </span>
-              <a href="https://sendestimates.com/privacy" class="project-link">Privacy Policy</a>
-              <a href="https://sendestimates.com/terms" class="project-link">Terms of Service</a>
             </div>
           </div>
-        </div>
+        </section>
 
-        <!-- Placeholder: Coming Soon -->
-        <div class="project-card placeholder reveal">
-          <div class="project-card-inner">
-            <div class="project-icon muted">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.08"/>
-                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-opacity="0.3" stroke-width="2"/>
-                <path d="M24 18V16M24 32V30M30 24H32M16 24H18" stroke="currentColor" stroke-opacity="0.3" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="project-name muted-text">Coming Soon</h3>
-            <p class="project-desc muted-text">More ideas are heating up. Watch this space.</p>
-            <div class="project-footer">
-              <span class="project-status muted-text">
-                <span class="status-dot muted-dot"></span>
-                On the Anvil
-              </span>
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+          <div class="section-head">
+            <div class="section-num">§ 01 / PORTFOLIO</div>
+            <h2 class="section-title">From the Foundry</h2>
+            <div class="section-meta">02 LIVE · 01 ON ANVIL</div>
+          </div>
+
+          <div class="projects">
+            <a class="project-row" href="projects/clevo.html" data-hover>
+              <div class="project-id">
+                <div>PRJ — 001</div>
+                <div class="num">01</div>
+              </div>
+              <div class="project-icon app-icon" aria-hidden="true">
+                <img src="/assets/clevo-icon.png" alt="" />
+              </div>
+              <div class="project-name-col">
+                <div class="project-tag">iOS APP / HEALTH &amp; FITNESS</div>
+                <div class="project-name">Clevo</div>
+                <div class="project-desc">
+                  Clevo helps you break unwanted habits — like nicotine, vaping, drinking, gambling, and more — with personalized tracking, insights, and motivation.
+                </div>
+              </div>
+              <div class="project-meta">
+                <div class="status"><span class="dot"></span> LIVE / APP STORE</div>
+                <div class="chips">
+                  <span class="chip">SwiftUI</span>
+                  <span class="chip">iOS 17+</span>
+                </div>
+                <div class="open-arrow">VIEW DETAIL <span>→</span></div>
+              </div>
+            </a>
+
+            <a class="project-row" href="projects/sendestimates.html" data-hover>
+              <div class="project-id">
+                <div>PRJ — 002</div>
+                <div class="num">02</div>
+              </div>
+              <div class="project-icon app-icon" aria-hidden="true">
+                <img src="/assets/sendestimates-icon.svg" alt="" />
+              </div>
+              <div class="project-name-col">
+                <div class="project-tag">WEB APP / SAAS</div>
+                <div class="project-name">SendEstimates</div>
+                <div class="project-desc">
+                  A mobile-first quoting app for trade contractors. Build and send professional, branded quotes from your phone in under 2 minutes — with e-signatures, auto follow-ups, and PDF generation.
+                </div>
+              </div>
+              <div class="project-meta">
+                <div class="status"><span class="dot"></span> LIVE / WEB</div>
+                <div class="chips">
+                  <span class="chip">Next.js</span>
+                  <span class="chip">Stripe</span>
+                </div>
+                <div class="open-arrow">VIEW DETAIL <span>→</span></div>
+              </div>
+            </a>
+
+            <div class="project-row placeholder" aria-hidden="false">
+              <div class="project-id">
+                <div>PRJ — 003</div>
+                <div class="num" style="opacity: 0.4;">03</div>
+              </div>
+              <div class="project-icon" aria-hidden="true">
+                <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="20" y1="36" x2="52" y2="36" stroke="currentColor" stroke-width="1.5" />
+                  <line x1="36" y1="20" x2="36" y2="52" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+              </div>
+              <div class="project-name-col">
+                <div class="project-tag">ON THE ANVIL</div>
+                <div class="project-name" style="opacity: 0.7;">Coming Soon</div>
+                <div class="project-desc">More ideas are heating up. Watch this space.</div>
+              </div>
+              <div class="project-meta">
+                <div class="status soon"><span class="dot"></span> PRE-LAUNCH</div>
+                <div class="chips">
+                  <span class="chip dashed">TBA</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+          <div class="section-head">
+            <div class="section-num">§ 02 / ABOUT</div>
+            <h2 class="section-title">The Foundry</h2>
+            <div class="section-meta">EST 2025 · SPK / WA</div>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-body">
+              <p>
+                Apollo Digital Foundry is where ideas get forged into real products. We're a lean product lab focused on building apps, tools, and digital experiences that solve real problems.
+              </p>
+              <p>
+                Every product starts as a spark — an itch to scratch, a gap to fill, a better way to do something. We take those sparks and run them through the full cycle: <strong>ideate, design, build, ship.</strong>
+              </p>
+              <p>
+                We move fast, stay hands-on, and care deeply about craft. If it ships from the foundry, it's built to last.
+              </p>
+            </div>
+
+            <div class="pillars">
+              <div class="pillar" data-hover>
+                <div class="pillar-num">/ 01</div>
+                <div>
+                  <div class="pillar-title">Build</div>
+                  <div class="pillar-desc">Ship real products, not slide decks.</div>
+                </div>
+                <div class="pillar-glyph" aria-hidden="true">
+                  <svg viewBox="0 0 48 48"><rect x="8" y="20" width="32" height="20" fill="none" stroke="currentColor" stroke-width="1" /><path d="M 8 20 L 24 8 L 40 20" fill="none" stroke="currentColor" stroke-width="1" /></svg>
+                </div>
+              </div>
+              <div class="pillar" data-hover>
+                <div class="pillar-num">/ 02</div>
+                <div>
+                  <div class="pillar-title">Craft</div>
+                  <div class="pillar-desc">Sweat the details that matter.</div>
+                </div>
+                <div class="pillar-glyph" aria-hidden="true">
+                  <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="1" /><circle cx="24" cy="24" r="8" fill="none" stroke="currentColor" stroke-width="1" /><circle cx="24" cy="24" r="2" fill="currentColor" /></svg>
+                </div>
+              </div>
+              <div class="pillar" data-hover>
+                <div class="pillar-num">/ 03</div>
+                <div>
+                  <div class="pillar-title">Iterate</div>
+                  <div class="pillar-desc">Launch, learn, improve, repeat.</div>
+                </div>
+                <div class="pillar-glyph" aria-hidden="true">
+                  <svg viewBox="0 0 48 48"><path d="M 12 24 A 12 12 0 0 1 36 24" fill="none" stroke="currentColor" stroke-width="1" /><path d="M 36 24 A 12 12 0 0 1 12 24" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" /><polyline points="32,18 36,24 30,26" fill="none" stroke="currentColor" stroke-width="1" /></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section no-border" id="contact">
+          <div class="section-head">
+            <div class="section-num">§ 03 / CONTACT</div>
+            <h2 class="section-title">Channel Open</h2>
+            <div class="section-meta">PT (UTC-7)</div>
+          </div>
+
+          <div class="contact-grid">
+            <div>
+              <div class="contact-label">▸ INCOMING TRANSMISSION</div>
+              <h2 class="contact-title">Let's<br />connect.</h2>
+              <p class="contact-sub">Have an idea, a question, or just want to say hello? Reach out.</p>
+            </div>
+            <div>
+              <a href="mailto:hello@apollodigitalfoundry.com" class="contact-email" data-hover>hello@apollodigitalfoundry.com →</a>
+              <div class="contact-meta">
+                <div>
+                  <span class="k">LOCATION</span>
+                  <span class="v">Spokane, WA</span>
+                </div>
+                <div>
+                  <span class="k">COORDINATES</span>
+                  <span class="v">47.66°N 117.43°W</span>
+                </div>
+                <div>
+                  <span class="k">RESPONSE</span>
+                  <span class="v">≤ 48 hours</span>
+                </div>
+                <div>
+                  <span class="k">STATUS</span>
+                  <span class="v ok">● Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
-  </section>
+    </main>
 
-  <!-- About Section -->
-  <section class="section section-alt" id="about">
-    <div class="container">
-      <p class="section-tag">About</p>
-      <h2 class="section-title">The Foundry</h2>
-
-      <div class="about-content reveal">
-        <div class="about-text">
-          <p>Apollo Digital Foundry is where ideas get forged into real products. We're a lean product lab focused on building apps, tools, and digital experiences that solve real problems.</p>
-          <p>Every product starts as a spark — an itch to scratch, a gap to fill, a better way to do something. We take those sparks and run them through the full cycle: <strong>ideate, design, build, ship.</strong></p>
-          <p>We move fast, stay hands-on, and care deeply about craft. If it ships from the foundry, it's built to last.</p>
-        </div>
-        <div class="about-values">
-          <div class="value-item">
-            <div class="value-icon">&#9881;</div>
-            <h4>Build</h4>
-            <p>Ship real products, not slide decks.</p>
-          </div>
-          <div class="value-item">
-            <div class="value-icon">&#9733;</div>
-            <h4>Craft</h4>
-            <p>Sweat the details that matter.</p>
-          </div>
-          <div class="value-item">
-            <div class="value-icon">&#9889;</div>
-            <h4>Iterate</h4>
-            <p>Launch, learn, improve, repeat.</p>
-          </div>
-        </div>
+    <footer class="footer">
+      <div>© 2026 APOLLO DIGITAL FOUNDRY</div>
+      <div>SPOKANE · WA · 47.66°N 117.43°W</div>
+      <div class="footer-right">
+        <a href="privacy.html">Privacy</a>
+        <a href="#hero" data-top>↑ Top</a>
       </div>
-    </div>
-  </section>
-
-  <!-- Contact / Footer -->
-  <footer class="footer" id="contact">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-main">
-          <p class="section-tag">Get in Touch</p>
-          <h2 class="section-title">Let's Connect</h2>
-          <p class="footer-text">Have an idea, a question, or just want to say hello? Reach out.</p>
-          <a href="mailto:hello@apollodigitalfoundry.com" class="btn btn-primary">hello@apollodigitalfoundry.com</a>
-        </div>
-        <div class="footer-info">
-          <div class="footer-info-item">
-            <span class="footer-info-label">Location</span>
-            <span>Spokane, WA</span>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p class="copyright">&copy; 2026 Apollo Digital Foundry. All rights reserved.</p>
-          <div class="footer-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="#hero">Back to Top</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
