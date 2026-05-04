@@ -1,0 +1,15 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HappeningIn icon">
+  <rect width="512" height="512" rx="112" fill="#0A0B0D"/>
+  <rect x="56" y="56" width="400" height="400" rx="88" stroke="#2D3035" stroke-width="2"/>
+  <path d="M96 256H416" stroke="#E8E6E1" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="10 14"/>
+  <path d="M256 96V416" stroke="#E8E6E1" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="10 14"/>
+  <circle cx="256" cy="256" r="126" stroke="#2D3035" stroke-width="3"/>
+  <circle cx="256" cy="256" r="82" stroke="#2D3035" stroke-width="2" stroke-dasharray="8 10"/>
+  <path d="M256 142C211.3 142 175 178.3 175 223C175 284.7 256 370 256 370C256 370 337 284.7 337 223C337 178.3 300.7 142 256 142Z" fill="#E8E6E1"/>
+  <circle cx="256" cy="224" r="34" fill="#0A0B0D"/>
+  <circle cx="256" cy="224" r="16" fill="#F59E0B"/>
+  <circle cx="358" cy="154" r="10" fill="#7DD3FC"/>
+  <circle cx="151" cy="337" r="8" fill="#72C98A"/>
+  <path d="M135 120H197" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M135 392H233" stroke="#E8E6E1" stroke-opacity="0.5" stroke-width="8" stroke-linecap="round"/>
+</svg>
